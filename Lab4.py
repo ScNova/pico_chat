@@ -11,6 +11,7 @@ uart = UART(1 , baudrate = 9600 , tx = Pin(8) , rx = Pin(9))
 #using this variable to check when the last time the message was sent either by send_message or wait_message
 last_sent = time.ticks_ms()
 
+# added a lock feature to give priority to one thread
 uart_lock = _thread.allocate_lock()
 
 #to avoid user_message and waiting_message sending at the same time
